@@ -1,4 +1,4 @@
-const buttons = document.querySelectorAll("button");
+const selectButtons = document.querySelectorAll("#selectButtons");
 const icons = ["✌️","✋","✊"];
 const playConsole = ["Rock", "Paper", "Scissors"];
 const playerTable = document.querySelector("#playerScore");
@@ -11,6 +11,8 @@ const player = document.querySelector("#player");
 let playerChoice;
 const computerCard = document.getElementById("computerCard");
 const playerCard = document.getElementById("playerCard");
+const buttons = document.querySelectorAll("button");
+
 
 let newDiv = document.createElement("div");
 newDiv.classList.add = "text-uppercase";
@@ -69,7 +71,7 @@ for (let button of buttons) {
         newDiv.innerHTML = "Equal. Both of them are paper!";
         computerDiv.innerHTML = icons[1];
       }
-    }else {
+    }else if (playerChoice === "Scissors") {
       playerDiv.innerHTML= icons[0];
       if (computerChoice === "Rock") {
         computerFunction(playerChoice, computerChoice);
@@ -81,6 +83,14 @@ for (let button of buttons) {
         newDiv.innerHTML = "Equal. Both of them are scissors!";
         computerDiv.innerHTML = icons[0];
       }
+    } else {
+      playerDiv.innerHTML = "";
+      computerDiv.innerHTML = "";
+      playerScore = 0;
+      playerTable.innerHTML = playerScore;
+      computerScore = 0;
+      computerTable.innerHTML = computerScore;
+      newDiv.innerHTML = "";
     }
   });
 }
